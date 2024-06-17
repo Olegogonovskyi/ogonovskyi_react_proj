@@ -3,6 +3,7 @@ import {IPaginationModel} from "../../Models/IPaginationModel";
 import {moviesApiService} from "../../services/movies.api.service";
 import {AxiosError} from "axios";
 import { IMovieModel } from "../../Models/IMovieModel";
+import {ISearchModel} from "../../Models/ISearchModel";
 
 
 type initialStateProps = IPaginationModel<IMovieModel> & {nowPlaying: IMovieModel[]}
@@ -16,7 +17,17 @@ const initialState: initialStateProps = {
 
 const searchMovieLoad = createAsyncThunk(
     'moviesSlice/searchMovieLoad',
-    ()
+    async ({keyword}: ISearchModel, thunkAPI) => {
+        try {
+            const response = await moviesApiService.searchMovie({keyword})
+            return thunkAPI.fulfillWithValue(response)
+        } catch (e) {
+            const error = e as AxiosError
+            return thunkAPI.rejectWithValue(error.response?.data)
+        }
+
+
+    }
 )
 
 
@@ -61,6 +72,9 @@ const moviesSlice = createSlice({
         .addCase(loadNowPlayingMovie.fulfilled, (state, action: PayloadAction<IMovieModel[]>) => {
             state.nowPlaying = action.payload
         })
+        .addCase(searchMovieLoad.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
+            return {...state, ...action.payload};
+        })
 
 })
 
@@ -69,7 +83,8 @@ const {reducer: moviesReducer, actions} = moviesSlice
 const moviesActions = {
     ...actions,
     loadAllMovies,
-    loadNowPlayingMovie
+    loadNowPlayingMovie,
+    searchMovieLoad
 }
 
 export {moviesActions, moviesReducer}
