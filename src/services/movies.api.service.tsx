@@ -17,6 +17,6 @@ export const moviesApiService = {
     searchMovie: async (keyword: string): Promise<ISearchRespModel> => {
         const {data} = await axiosInstanse.get(urls.search.searchMovie(keyword))
         return data
-        //https://developer.themoviedb.org/reference/search-movie ТУТ ПЕРЕРОБИТИ
+        
     }
 }

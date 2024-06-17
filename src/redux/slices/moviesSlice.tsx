@@ -14,6 +14,12 @@ const initialState: initialStateProps = {
     nowPlaying: []
 }
 
+const searchMovieLoad = createAsyncThunk(
+    'moviesSlice/searchMovieLoad',
+    ()
+)
+
+
 const loadNowPlayingMovie = createAsyncThunk(
     'moviesSlice/loadNowPlayingMovie',
     async (_: void, thunkAPI) => {
