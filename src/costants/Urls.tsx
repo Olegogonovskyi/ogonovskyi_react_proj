@@ -11,7 +11,7 @@ const urls = {
     },
     search: {
         searchPage: 'search',
-        searchMovie: 'search/movie'
+        searchMovie: (keyword: string) => 'search/' + keyword
     }
 }
 

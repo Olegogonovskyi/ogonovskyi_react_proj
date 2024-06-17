@@ -13,4 +13,5 @@ export const moviesApiService = {
         const {data} = await axiosInstanse.get<IPaginationModel>(urls.movieUrls.nowPlayingMovies)
         return data.results
     }
+    // searchMovie: (keyword: string) => 
 }
