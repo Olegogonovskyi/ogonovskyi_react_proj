@@ -4,11 +4,14 @@ import {urls} from "../costants/Urls";
 import SearchPage from "../Pages/SearchPage/SearchPage";
 import ColectionsPage from "../Pages/ColectionsPage/ColectionsPage";
 import AllFilmsPage from "../Pages/AllFilmsPage/AllFilmsPage";
-import MainSliderPage from "../Pages/MainSliderPage/MainSliderPage";
+import MainPage from "../Pages/MainPage/MainPage";
 
 export const routes = createBrowserRouter([
     {
         path: '/', element: <MainLayout/>, children: [
+            {
+                index: true, element: <MainPage/>
+            },
             {
                 path: urls.genreUrls.allGenres, element: <ColectionsPage/>
             },
