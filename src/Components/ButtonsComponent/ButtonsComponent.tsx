@@ -5,10 +5,6 @@ const ButtonsComponent: FC<{page: number, total_pages: number, setQwerty: any}> 
     let next: number | null;
     page > 0 ? prev = (page - 1) :  prev= null
     page < total_pages ? next = page + 1 :  next= null
-   // // const prev = page-1;
-   // // const next = page + 1;
-
-
 
     const setterPage = (page: string) => {
         switch (page) {

@@ -3,7 +3,7 @@ const baseUrl = 'https://api.themoviedb.org/3/'
 const urls = {
     movieUrls: {
         allMovie: 'discover/movie',
-        popularMovies: 'movie/popular',
+        nowPlayingMovies: 'movie/now_playing',
         detailsMovie: (id: string) => '/movie/' + id
     },
     genreUrls: {

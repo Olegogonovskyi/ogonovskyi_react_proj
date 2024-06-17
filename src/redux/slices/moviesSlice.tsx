@@ -2,13 +2,32 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IPaginationModel} from "../../Models/IPaginationModel";
 import {moviesApiService} from "../../services/movies.api.service";
 import {AxiosError} from "axios";
+import { IMovieModel } from "../../Models/IMovieModel";
 
-const initialState: IPaginationModel = {
+
+type initialStateProps = IPaginationModel & {nowPlaying: IMovieModel[]}
+const initialState: initialStateProps = {
     page: 0,
     results: [],
     total_pages: 0,
-    total_results: 0
+    total_results: 0,
+    nowPlaying: []
 }
+
+const loadNowPlayingMovie = createAsyncThunk(
+    'moviesSlice/loadNowPlayingMovie',
+    async (_: void, thunkAPI) => {
+        try {
+            const response = await moviesApiService.getNowPlayingMovies()
+            return thunkAPI.fulfillWithValue(response)
+        } catch (e) {
+            const error = e as AxiosError
+            return thunkAPI.rejectWithValue(error.response?.data)
+        }
+
+
+    }
+)
 
 const loadAllMovies = createAsyncThunk(
     'moviesSlice/loadAllMovies',
@@ -33,6 +52,9 @@ const moviesSlice = createSlice({
         .addCase(loadAllMovies.fulfilled, (state, action: PayloadAction<IPaginationModel>) => {
             return {...state, ...action.payload};
         })
+        .addCase(loadNowPlayingMovie.fulfilled, (state, action: PayloadAction<IMovieModel[]>) => {
+            state.nowPlaying = action.payload
+        })
 
 })
 
@@ -40,7 +62,8 @@ const {reducer: moviesReducer, actions} = moviesSlice
 
 const moviesActions = {
     ...actions,
-    loadAllMovies
+    loadAllMovies,
+    loadNowPlayingMovie
 }
 
 export {moviesActions, moviesReducer}

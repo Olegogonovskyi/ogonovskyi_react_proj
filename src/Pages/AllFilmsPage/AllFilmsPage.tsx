@@ -6,7 +6,7 @@ import {useSearchParams} from "react-router-dom";
 import ButtonsComponent from "../../Components/ButtonsComponent/ButtonsComponent";
 
 const AllFilmsPage: FC = () => {
-const [qwerty, setQwerty] = useSearchParams({page: '1'})
+    const [qwerty, setQwerty] = useSearchParams({page: '1'})
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
     const dispatch = useAppDispatch()
     useEffect(() => {
