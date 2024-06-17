@@ -1,8 +1,7 @@
-import {IMovieModel} from "./IMovieModel";
 
-export interface IPaginationModel {
+export interface IPaginationModel<T> {
     page: number,
-    results: IMovieModel[],
+    results: T[],
     total_pages: number,
     total_results: number
 }

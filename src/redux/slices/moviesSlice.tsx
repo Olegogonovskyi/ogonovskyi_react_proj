@@ -5,7 +5,7 @@ import {AxiosError} from "axios";
 import { IMovieModel } from "../../Models/IMovieModel";
 
 
-type initialStateProps = IPaginationModel & {nowPlaying: IMovieModel[]}
+type initialStateProps = IPaginationModel<IMovieModel> & {nowPlaying: IMovieModel[]}
 const initialState: initialStateProps = {
     page: 0,
     results: [],
@@ -49,7 +49,7 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => builder
-        .addCase(loadAllMovies.fulfilled, (state, action: PayloadAction<IPaginationModel>) => {
+        .addCase(loadAllMovies.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
             return {...state, ...action.payload};
         })
         .addCase(loadNowPlayingMovie.fulfilled, (state, action: PayloadAction<IMovieModel[]>) => {
