@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import style from './ButtonsComponent.module.css'
 
 const ButtonsComponent: FC<{page: number, total_pages: number, setQwerty: any}> = ({page, total_pages, setQwerty}) => {
     let prev: number | null;
@@ -18,9 +19,9 @@ const ButtonsComponent: FC<{page: number, total_pages: number, setQwerty: any}> 
     }
 
     return (
-        <div>
-            <button disabled={!prev} onClick={()=> {setterPage('prev')}}>Prev</button>
-            <button disabled={!next} onClick={()=> {setterPage('next')}}>Next</button>
+        <div className={style.main}>
+            <button className={`${style.button} ${style.prev}`} disabled={!prev} onClick={()=> {setterPage('prev')}}>Prev</button>
+            <button className={`${style.button} ${style.next}`} disabled={!next} onClick={()=> {setterPage('next')}}>Next</button>
         </div>
     );
 };
