@@ -10,11 +10,12 @@ import { useSearchParams } from 'react-router-dom';
 const SearchComponent: FC = () => {
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
     const [qwerty, setQwerty] = useSearchParams({page: '1'})
-    const {handleSubmit, register} = useForm<ISearchModel>()
+    const {handleSubmit, register, reset} = useForm<ISearchModel>()
     const dispatch = useAppDispatch()
     const {results} = useAppSelector(state => state.moviesReducer)
     const searchMovie = async (keyword: ISearchModel ) => {
         await dispatch(moviesActions.searchMovieLoad(keyword))
+        reset()
     }
 
     return (
