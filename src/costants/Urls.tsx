@@ -12,7 +12,8 @@ const urls = {
     search: {
         searchPage: 'search',
         searchMovie:  'search/movie'
-    }
+    },
+    image: (path: string) => 'https://image.tmdb.org/t/p/w500/' + path
 }
 
 export {

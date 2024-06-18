@@ -26,7 +26,7 @@ const MainSliderComponent: FC = () => {
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 autoPlay={true}
                 dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
+                itemClass="carousel-item-padding-10-px"
             >
                 {
                     nowPlaying && nowPlaying.map(movie => <FilmComponent key={movie.id} movie={movie}/>)

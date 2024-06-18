@@ -4,12 +4,11 @@ import { moviesActions } from '../../redux/slices/moviesSlice';
 import { useForm } from 'react-hook-form';
 import { ISearchModel } from '../../Models/ISearchModel';
 import FilmComponent from '../FilmComponent/FilmComponent';
-import { useSearchParams } from 'react-router-dom';
+
 
 
 const SearchComponent: FC = () => {
-    const {page, total_pages} = useAppSelector(state => state.moviesReducer)
-    const [qwerty, setQwerty] = useSearchParams({page: '1'})
+
     const {handleSubmit, register, reset} = useForm<ISearchModel>()
     const dispatch = useAppDispatch()
     const {results} = useAppSelector(state => state.moviesReducer)

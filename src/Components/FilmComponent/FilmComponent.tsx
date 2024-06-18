@@ -1,12 +1,15 @@
 import React, {FC} from 'react';
 import {IMovieModel} from "../../Models/IMovieModel";
+import { urls } from '../../costants/Urls';
+import styles from './FilmComponent.module.css'
 
 const FilmComponent: FC<{movie: IMovieModel}> = ({movie}) => {
-    const {title, overview} = movie
+    const {title, overview, poster_path} = movie
     return (
-        <div>
-            <h1>{title}</h1>
-            <p>{overview}</p>
+        <div className={styles.movie}>
+            <img className={styles.poster} src={urls.image(poster_path)} alt={title}/>
+            <h5 className={styles.title}>{title}</h5>
+
         </div>
     );
 };
