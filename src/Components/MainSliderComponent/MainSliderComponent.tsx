@@ -12,7 +12,7 @@ const MainSliderComponent: FC = () => {
         <div>
             <Carousel
                 swipeable={true}
-                draggable={false}
+                draggable={true}
                 showDots={true}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
