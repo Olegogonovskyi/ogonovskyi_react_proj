@@ -13,7 +13,11 @@ const urls = {
         searchPage: 'search',
         searchMovie: 'search/movie'
     },
-    image: (path: string) => 'https://image.tmdb.org/t/p/w500/' + path
+    image: (path: string) => 'https://image.tmdb.org/t/p/w500/' + path,
+    videoUrls: {
+        getVideos: (id: string) => 'movie/'+ id + '/videos',
+        showVideo: (key: string) => ' https://www.youtube.com/embed/'+ key
+    }
 }
 
 export {

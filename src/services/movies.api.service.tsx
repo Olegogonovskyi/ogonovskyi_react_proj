@@ -4,6 +4,7 @@ import {IPaginationModel} from "../Models/IPaginationModel";
 import {IMovieModel} from "../Models/IMovieModel";
 import {ISearchModel} from "../Models/ISearchModel";
 import {IMovieDetailInfo} from "../Models/IMovieDetailInfo";
+import { IVideoModel } from "../Models/IVideoModel";
 
 
 export const moviesApiService = {
@@ -21,6 +22,10 @@ export const moviesApiService = {
     },
     movieDetails: async (movieId: string): Promise<IMovieDetailInfo> => {
         const {data} = await axiosInstanse.get<IMovieDetailInfo>(urls.movieUrls.detailsMovie(movieId))
+        return data
+    },
+    getVideos: async (movieId: string): Promise<IVideoModel> => {
+        const {data} = await axiosInstanse.get<IVideoModel>(urls.videoUrls.getVideos(movieId))
         return data
     }
 }

@@ -1,0 +1,52 @@
+
+
+.movieContainer {
+    margin: 0;
+    /*padding: 0;*/
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    /*background-color: #fff;*/
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    /*max-width: 600px;*/
+    text-align: center;
+    padding: 20px;
+}
+
+.moviePoster {
+    width: 400px;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.movieTitle {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.movieDescription {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+.videoContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}

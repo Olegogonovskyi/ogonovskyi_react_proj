@@ -5,6 +5,7 @@ import SearchPage from "../Pages/SearchPage/SearchPage";
 import ColectionsPage from "../Pages/ColectionsPage/ColectionsPage";
 import AllFilmsPage from "../Pages/AllFilmsPage/AllFilmsPage";
 import MainPage from "../Pages/MainPage/MainPage";
+import MovieDetailPage from "../Pages/MovieDetailPage/MovieDetailPage";
 
 export const routes = createBrowserRouter([
     {
@@ -20,6 +21,9 @@ export const routes = createBrowserRouter([
             },
             {
                 path: urls.search.searchPage, element: <SearchPage/>
+            },
+            {
+                path: 'movie/:id', element: <MovieDetailPage/>
             }
         ]
     }
