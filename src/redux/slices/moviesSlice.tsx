@@ -1,12 +1,11 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IPaginationModel} from "../../Models/IPaginationModel";
-import {moviesApiService} from "../../services/movies.api.service";
+import {ISearchServiceType, moviesApiService} from "../../services/movies.api.service";
 import {AxiosError} from "axios";
-import { IMovieModel } from "../../Models/IMovieModel";
-import {ISearchModel} from "../../Models/ISearchModel";
+import {IMovieModel} from "../../Models/IMovieModel";
 
 
-type initialStateProps = IPaginationModel<IMovieModel> & {nowPlaying: IMovieModel[]}
+type initialStateProps = IPaginationModel<IMovieModel> & { nowPlaying: IMovieModel[] }
 const initialState: initialStateProps = {
     page: 0,
     results: [],
@@ -17,16 +16,14 @@ const initialState: initialStateProps = {
 
 const searchMovieLoad = createAsyncThunk(
     'moviesSlice/searchMovieLoad',
-    async ({keyword}: ISearchModel, thunkAPI) => {
+    async ({keyword: {keyword}, page}: ISearchServiceType, thunkAPI) => {
         try {
-            const response = await moviesApiService.searchMovie({keyword})
+            const response = await moviesApiService.searchMovie({keyword: {keyword}, page})
             return thunkAPI.fulfillWithValue(response)
         } catch (e) {
             const error = e as AxiosError
             return thunkAPI.rejectWithValue(error.response?.data)
         }
-
-
     }
 )
 

@@ -7,6 +7,10 @@ import {IMovieDetailInfo} from "../Models/IMovieDetailInfo";
 import { IVideoModel } from "../Models/IVideoModel";
 import {IGenreModel} from "../Models/IGenreModel";
 
+export type ISearchServiceType = {
+    keyword: ISearchModel,
+    page: string
+}
 
 export const moviesApiService = {
     getAllMovies: async (page: string): Promise<IPaginationModel<IMovieModel>> => {
@@ -17,7 +21,7 @@ export const moviesApiService = {
         const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.movieUrls.nowPlayingMovies)
         return data.results
     },
-    searchMovie: async ({keyword}: ISearchModel): Promise<IPaginationModel<IMovieModel>> => {
+    searchMovie: async ({keyword: {keyword}, page}: ISearchServiceType): Promise<IPaginationModel<IMovieModel>> => {
         const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.search.searchMovie, {params: {query: keyword}})
         return data
     },

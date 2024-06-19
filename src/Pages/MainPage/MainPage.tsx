@@ -17,8 +17,10 @@ const MainPage: FC = () => {
     }, [dispatch, qwerty]);
     return (
         <div>
+
             <MainSliderComponent/>
             <hr/>
+            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
             <AllFilmsPage/>
             <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
         </div>
