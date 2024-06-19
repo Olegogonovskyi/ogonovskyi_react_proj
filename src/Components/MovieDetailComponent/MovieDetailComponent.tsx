@@ -16,13 +16,13 @@ const MovieDetailComponent: FC = () => {
                         <h1 className={style.movieTitle}>{movie.original_title}</h1>
 
                         <p className={style.movieDescription}>{movie.overview}</p>
-                        <div>
-                            <div>Videos</div>
+                        <div className={style.videoBlock}>
+                            <div className={style.videoTitle}>Videos</div>
                             <div className={style.videoContainer}>
 
                                 {
                                     video &&
-                                    video.results.map((trailer, index) => <div>
+                                    video.results.map((trailer, index) => <div >
                                         <iframe
                                             src={urls.videoUrls.showVideo(trailer.key)}
 
