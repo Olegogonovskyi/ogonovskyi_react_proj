@@ -61,6 +61,19 @@ const loadAllMovies = createAsyncThunk(
     }
 )
 
+const loadMovieByGenre = createAsyncThunk(
+    'createSlice/loadMovieByGenre',
+    async (arg: string, thunkAPI) => {
+        try {
+            const response = await moviesApiService.getMoviesByGenre(arg)
+            return thunkAPI.fulfillWithValue(response)
+        } catch (e) {
+            const error = e as AxiosError
+            return thunkAPI.rejectWithValue(error.response?.data)
+        }
+    }
+)
+
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
@@ -75,6 +88,9 @@ const moviesSlice = createSlice({
         .addCase(searchMovieLoad.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
             return {...state, ...action.payload};
         })
+        .addCase(loadMovieByGenre.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
+            return {...state, ...action.payload};
+        })
 
 })
 
@@ -84,7 +100,8 @@ const moviesActions = {
     ...actions,
     loadAllMovies,
     loadNowPlayingMovie,
-    searchMovieLoad
+    searchMovieLoad,
+    loadMovieByGenre
 }
 
 export {moviesActions, moviesReducer}

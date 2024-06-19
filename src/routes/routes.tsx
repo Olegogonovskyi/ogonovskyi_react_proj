@@ -6,6 +6,7 @@ import ColectionsPage from "../Pages/ColectionsPage/ColectionsPage";
 import AllFilmsPage from "../Pages/AllFilmsPage/AllFilmsPage";
 import MainPage from "../Pages/MainPage/MainPage";
 import MovieDetailPage from "../Pages/MovieDetailPage/MovieDetailPage";
+import GenrePage from "../Pages/GenrePage/GenrePage";
 
 export const routes = createBrowserRouter([
     {
@@ -24,6 +25,9 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'movie/:id', element: <MovieDetailPage/>
+            },
+            {
+                path: 'genre/:id', element: <GenrePage/>
             }
         ]
     }
