@@ -6,6 +6,7 @@ import {ISearchModel} from "../Models/ISearchModel";
 import {IMovieDetailInfo} from "../Models/IMovieDetailInfo";
 import { IVideoModel } from "../Models/IVideoModel";
 import {IGenreModel} from "../Models/IGenreModel";
+import { IgnreServiceType } from "../Models/IgnreServiceType";
 
 export type ISearchServiceType = {
     query: ISearchModel,
@@ -37,8 +38,8 @@ export const moviesApiService = {
         const {data} = await axiosInstanse.get(urls.genreUrls.allGenres)
         return data
     },
-    getMoviesByGenre: async (genreId: string): Promise<IPaginationModel<IMovieModel>> => {
-        const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.genreUrls.getByIdGenre(genreId))
+    getMoviesByGenre: async ({page, id}: IgnreServiceType): Promise<IPaginationModel<IMovieModel>> => {
+        const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.genreUrls.getByIdGenre({page, id}))
     return data
 
     }

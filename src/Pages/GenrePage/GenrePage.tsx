@@ -16,15 +16,15 @@ const GenrePage: FC = () => {
     useEffect(() => {
         setCurrentPage(qwerty.get('page') || '1');
         if (id) {
-            dispatch(moviesActions.loadMovieByGenre(id))
+            dispatch(moviesActions.loadMovieByGenre({page: currentPage, id: id}))
         }
     }, [qwerty, currentPage, id]);
-    useEffect(() => {
-        console.log("id: ", id);
-        console.log("Current Page: ", currentPage);
-        console.log("Page from Redux: ", page);
-        console.log("Total Pages from Redux: ", total_pages);
-    }, [id, currentPage, page, total_pages]);
+    // useEffect(() => {
+    //     console.log("id: ", id);
+    //     console.log("Current Page: ", currentPage);
+    //     console.log("Page from Redux: ", page);
+    //     console.log("Total Pages from Redux: ", total_pages);
+    // }, [id, currentPage, page, total_pages]);
     return (
         <div>
             <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>

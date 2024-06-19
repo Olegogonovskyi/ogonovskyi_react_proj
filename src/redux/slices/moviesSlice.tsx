@@ -3,6 +3,7 @@ import {IPaginationModel} from "../../Models/IPaginationModel";
 import {ISearchServiceType, moviesApiService} from "../../services/movies.api.service";
 import {AxiosError} from "axios";
 import {IMovieModel} from "../../Models/IMovieModel";
+import { IgnreServiceType } from "../../Models/IgnreServiceType";
 
 
 type initialStateProps = IPaginationModel<IMovieModel> & { nowPlaying: IMovieModel[] }
@@ -54,10 +55,10 @@ const loadAllMovies = createAsyncThunk(
 
 const loadMovieByGenre = createAsyncThunk(
     'createSlice/loadMovieByGenre',
-    async (arg: string, thunkAPI) => {
+    async ({page,  id}: IgnreServiceType, thunkAPI) => {
         try {
-            const response = await moviesApiService.getMoviesByGenre(arg)
-            console.log('API Response:', response);
+            const response = await moviesApiService.getMoviesByGenre({page, id})
+            // console.log('API Response:', response);
             return thunkAPI.fulfillWithValue(response)
         } catch (e) {
             const error = e as AxiosError

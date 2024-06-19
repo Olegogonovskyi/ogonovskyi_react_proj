@@ -1,3 +1,5 @@
+import {IgnreServiceType} from "../Models/IgnreServiceType"
+
 const baseUrl = 'https://api.themoviedb.org/3/'
 
 const urls = {
@@ -8,7 +10,7 @@ const urls = {
     },
     genreUrls: {
         allGenres: 'genre/movie/list',
-        getByIdGenre: (id: string) => urls.movieUrls.allMovie + '?with_genres=' + id
+        getByIdGenre: ({id, page}: IgnreServiceType) => urls.movieUrls.allMovie + '?page=' + page + '&with_genres=' + id
     },
     search: {
         searchPage: 'search',
@@ -16,8 +18,8 @@ const urls = {
     },
     image: (path: string) => 'https://image.tmdb.org/t/p/w500/' + path,
     videoUrls: {
-        getVideos: (id: string) => 'movie/'+ id + '/videos',
-        showVideo: (key: string) => ' https://www.youtube.com/embed/'+ key
+        getVideos: (id: string) => 'movie/' + id + '/videos',
+        showVideo: (key: string) => ' https://www.youtube.com/embed/' + key
     }
 }
 
