@@ -3,6 +3,7 @@ import {useAppSelector} from '../../redux/store';
 import {urls} from '../../costants/Urls';
 import style from './MovieDetailComponent.module.css'
 import StarRatings from 'react-star-ratings';
+import ColectionComponent from '../ColectionComponent/ColectionComponent';
 
 const MovieDetailComponent: FC = () => {
     const {movie, video} = useAppSelector(state => state.detailMovieReducer)
@@ -20,23 +21,24 @@ const MovieDetailComponent: FC = () => {
                                     <h1 className={style.movieTitle}>{movie.original_title}</h1>
                                     <div className={style.genreBlock}>
                                         {
-                                        movie.genres.map(genre => <div>{genre.name}</div>)
-                                    }
+                                            movie.genres.map(genre => <ColectionComponent genre={genre}
+                                                                                          key={genre.id}/>)
+                                        }
                                     </div>
                                 </div>
                                 <div>
                                     <h4>Vote {movie.vote_average}</h4>
-                                    <StarRatings
-                                        rating={movie.vote_average}
-                                        starRatedColor="green"
-                                        numberOfStars={10}
-                                        name='rating'
-                                        starDimension="20px"
-                                        starSpacing="5px"
+                                    <StarRatings key={movie.id}
+                                                 rating={movie.vote_average}
+                                                 starRatedColor="green"
+                                                 numberOfStars={10}
+                                                 name='rating'
+                                                 starDimension="20px"
+                                                 starSpacing="5px"
                                     />
                                 </div>
                             </div>
-                           
+
 
                         </div>
                         <p className={style.movieDescription}>{movie.overview}</p>
