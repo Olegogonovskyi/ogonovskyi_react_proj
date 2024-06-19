@@ -5,8 +5,6 @@ import { useAppSelector } from '../../redux/store';
 
 const GenreComponent: FC = () => {
     const {results} = useAppSelector(state => state.moviesReducer)
-
-
     return (
         <div className={styles.moviesgrid}>
             {

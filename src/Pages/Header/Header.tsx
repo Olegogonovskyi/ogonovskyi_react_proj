@@ -11,7 +11,7 @@ const Header: FC = () => {
     const {handleSubmit, register, reset} = useForm<ISearchModel>()
     const searchMovie = (keyword: ISearchModel) => {
 
-        navigate(urls.search.searchPage + `/${keyword.keyword}`)
+        navigate(urls.search.searchPage + `/${keyword.query}`)
         reset()
     }
     return (
@@ -23,7 +23,7 @@ const Header: FC = () => {
                 </div>
 
                 <form onSubmit={handleSubmit(searchMovie)} className={style.searchContainer}>
-                    <input type="text" placeholder={'шо треба?'} {...register('keyword')}
+                    <input type="text" placeholder={'шо треба?'} {...register('query')}
                            className={style.searchInput}/>
                     <button className={style.searchButton}>Search</button>
                 </form>

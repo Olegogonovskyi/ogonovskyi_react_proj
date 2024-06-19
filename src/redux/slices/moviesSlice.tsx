@@ -16,9 +16,9 @@ const initialState: initialStateProps = {
 
 const searchMovieLoad = createAsyncThunk(
     'moviesSlice/searchMovieLoad',
-    async ({keyword: {keyword}, page}: ISearchServiceType, thunkAPI) => {
+    async ({query: {query}, page}: ISearchServiceType, thunkAPI) => {
         try {
-            const response = await moviesApiService.searchMovie({keyword: {keyword}, page})
+            const response = await moviesApiService.searchMovie({query: {query}, page})
             return thunkAPI.fulfillWithValue(response)
         } catch (e) {
             const error = e as AxiosError
@@ -26,8 +26,6 @@ const searchMovieLoad = createAsyncThunk(
         }
     }
 )
-
-
 const loadNowPlayingMovie = createAsyncThunk(
     'moviesSlice/loadNowPlayingMovie',
     async (_: void, thunkAPI) => {
@@ -38,8 +36,6 @@ const loadNowPlayingMovie = createAsyncThunk(
             const error = e as AxiosError
             return thunkAPI.rejectWithValue(error.response?.data)
         }
-
-
     }
 )
 
@@ -53,8 +49,6 @@ const loadAllMovies = createAsyncThunk(
             const error = e as AxiosError
             return thunkAPI.rejectWithValue(error.response?.data)
         }
-
-
     }
 )
 
@@ -63,6 +57,7 @@ const loadMovieByGenre = createAsyncThunk(
     async (arg: string, thunkAPI) => {
         try {
             const response = await moviesApiService.getMoviesByGenre(arg)
+            console.log('API Response:', response);
             return thunkAPI.fulfillWithValue(response)
         } catch (e) {
             const error = e as AxiosError

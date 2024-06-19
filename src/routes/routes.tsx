@@ -21,7 +21,7 @@ export const routes = createBrowserRouter([
                 path: urls.movieUrls.allMovie, element: <AllFilmsPage/>
             },
             {
-                path: urls.search.searchPage + '/:keyword', element: <SearchPage/>
+                path: urls.search.searchPage + '/:query', element: <SearchPage/>
             },
             {
                 path: 'movie/:id', element: <MovieDetailPage/>

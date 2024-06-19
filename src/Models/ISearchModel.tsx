@@ -1,3 +1,3 @@
 export interface ISearchModel {
-    keyword: string
+    query: string
 }

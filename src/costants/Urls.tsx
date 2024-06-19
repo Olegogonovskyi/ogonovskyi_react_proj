@@ -12,7 +12,7 @@ const urls = {
     },
     search: {
         searchPage: 'search',
-        searchMovie: 'search/movie'
+        searchMovie: (query: string) => 'search/movie?query=' + query
     },
     image: (path: string) => 'https://image.tmdb.org/t/p/w500/' + path,
     videoUrls: {
