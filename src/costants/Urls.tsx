@@ -7,7 +7,8 @@ const urls = {
         detailsMovie: (id: string) => '/movie/' + id
     },
     genreUrls: {
-        allGenres: 'genre/movie/list'
+        allGenres: 'genre/movie/list',
+        getByIdGenre: (id: string) => urls.movieUrls.allMovie + '?with_genres=' + id
     },
     search: {
         searchPage: 'search',

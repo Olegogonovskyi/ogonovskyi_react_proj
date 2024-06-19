@@ -27,5 +27,10 @@ export const moviesApiService = {
     getVideos: async (movieId: string): Promise<IVideoModel> => {
         const {data} = await axiosInstanse.get<IVideoModel>(urls.videoUrls.getVideos(movieId))
         return data
+    },
+    getMoviesByGenre: async (genreId: string): Promise<IPaginationModel<IMovieModel>> => {
+        const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.genreUrls.getByIdGenre(genreId))
+    return data
+
     }
 }
