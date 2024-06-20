@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, isFulfilled, PayloadAction} from "@reduxjs/toolkit";
 import {IPaginationModel} from "../../Models/IPaginationModel";
 import {ISearchServiceType, moviesApiService} from "../../services/movies.api.service";
 import {AxiosError} from "axios";
@@ -72,16 +72,12 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => builder
-        .addCase(loadAllMovies.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
-            return {...state, ...action.payload};
-        })
+
         .addCase(loadNowPlayingMovie.fulfilled, (state, action: PayloadAction<IMovieModel[]>) => {
             state.nowPlaying = action.payload
         })
-        .addCase(searchMovieLoad.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
-            return {...state, ...action.payload};
-        })
-        .addCase(loadMovieByGenre.fulfilled, (state, action: PayloadAction<IPaginationModel<IMovieModel>>) => {
+
+        .addMatcher(isFulfilled(loadAllMovies, loadMovieByGenre, searchMovieLoad), (state, action) => {
             return {...state, ...action.payload};
         })
 

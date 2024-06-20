@@ -12,8 +12,9 @@ const MovieDetailComponent: FC = () => {
         <div>
             {
                 movie &&
-                <div className={style.movieContainer}>
-                    <img src={urls.image(movie.poster_path)} className={style.moviePoster} alt={movie.original_title}/>
+                <div className={style.movieContainer} >
+                    <img src={urls.image(movie.poster_path)} className={style.moviePoster} alt={movie.original_title}
+                         key={movie.id}/>
                     <div>
                         <div>
                             <div className={style.titleBlock}>
@@ -43,7 +44,7 @@ const MovieDetailComponent: FC = () => {
                         </div>
                         <p className={style.movieDescription}>{movie.overview}</p>
                         <div className={style.videoBlock}>
-                            <div className={style.videoTitle}>Videos</div>
+                            <div className={style.videoTitle} key={movie.id}>Videos</div>
                             <div className={style.videoContainer}>
 
                                 {
@@ -55,7 +56,7 @@ const MovieDetailComponent: FC = () => {
 
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
-
+                                            key={movie.id}
                                         ></iframe>
                                     </div>)
                                 }</div>
