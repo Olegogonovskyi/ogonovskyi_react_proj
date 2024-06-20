@@ -5,13 +5,10 @@ import Footer from "../Footer/Footer";
 
 
 const MainLayout: FC = () => {
-
-    // const styles: React.CSSProperties = {
-    //     backgroundColor: '#292b2e',
-    //     color:  '#fde2c3',
-    //     padding: '20px',
-    //     borderRadius: '5px'
-    // };
+//     const style: React.CSSProperties = {
+//         backgroundColor: '#333'
+//
+// }
     return (
         <div >
             <Header/>
