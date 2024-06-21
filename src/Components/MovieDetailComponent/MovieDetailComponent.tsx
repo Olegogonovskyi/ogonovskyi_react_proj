@@ -4,12 +4,14 @@ import {urls} from '../../costants/Urls';
 import style from './MovieDetailComponent.module.css'
 import StarRatings from 'react-star-ratings';
 import ColectionComponent from '../ColectionComponent/ColectionComponent';
+import { globalStyles } from '../../GlobalStyles/GlobalStyles';
 
 const MovieDetailComponent: FC = () => {
+    const {curentTheme} = useAppSelector(state => state.themeReducer)
     const {movie, video} = useAppSelector(state => state.detailMovieReducer)
 
     return (
-        <div>
+        <div style={curentTheme ? globalStyles.light : globalStyles.dark}>
             {
                 movie &&
                 <div className={style.movieContainer} >
@@ -31,7 +33,7 @@ const MovieDetailComponent: FC = () => {
                                     <h4>Vote {movie.vote_average}</h4>
                                     <StarRatings key={movie.id}
                                                  rating={movie.vote_average}
-                                                 starRatedColor="green"
+                                                 starRatedColor="#4CAF50"
                                                  numberOfStars={10}
                                                  name='rating'
                                                  starDimension="20px"

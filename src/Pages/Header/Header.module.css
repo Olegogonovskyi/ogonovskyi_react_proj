@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 30px;
 }
 /*.userLogo {*/
 /*    height: 50px;*/
@@ -70,4 +71,34 @@
 
 .searchButton:active {
     transform: scale(0.95);
+}
+.button {
+    height: 50px;
+    max-width: 55px;
+    padding: 5px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+    background-color: #fff;
+    color: #000;
+}
+
+.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.themeUserBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.theme {
+   font-size: 30px;
 }
