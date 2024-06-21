@@ -1,16 +1,16 @@
-import {PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IGenreModel } from "../../Models/IGenreModel";
-import { moviesApiService } from "../../services/movies.api.service";
-import { AxiosError } from "axios";
+import {PayloadAction, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {IGenreModel} from "../../Models/IGenreModel";
+import {moviesApiService} from "../../services/movies.api.service";
+import {AxiosError} from "axios";
 
-type IGenresType = {genres: IGenreModel[]}
+type IGenresType = { genres: IGenreModel[] }
 const initialState: IGenresType = {
     genres: []
 }
 
 const loadGenres = createAsyncThunk(
     'genreSlice/loadGenres',
-    async  (arg: void, thunkAPI) => {
+    async (arg: void, thunkAPI) => {
         try {
             const response = await moviesApiService.getGenres()
             return thunkAPI.fulfillWithValue(response)
@@ -26,7 +26,7 @@ const genreSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => builder
-        .addCase(loadGenres.fulfilled, (state, action: PayloadAction<IGenreModel[]>)=> {
+        .addCase(loadGenres.fulfilled, (state, action: PayloadAction<IGenreModel[]>) => {
             return {...state, ...action.payload};
         })
 

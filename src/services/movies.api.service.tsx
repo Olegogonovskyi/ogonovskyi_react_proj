@@ -2,16 +2,11 @@ import {axiosInstanse} from "./axios.api.service";
 import {urls} from "../costants/Urls";
 import {IPaginationModel} from "../Models/IPaginationModel";
 import {IMovieModel} from "../Models/IMovieModel";
-import {ISearchModel} from "../Models/ISearchModel";
 import {IMovieDetailInfo} from "../Models/IMovieDetailInfo";
-import { IVideoModel } from "../Models/IVideoModel";
+import {IVideoModel} from "../Models/IVideoModel";
 import {IGenreModel} from "../Models/IGenreModel";
-import { IgnreServiceType } from "../Models/IgnreServiceType";
-
-export type ISearchServiceType = {
-    query: ISearchModel,
-    page: string
-}
+import {IgnreServiceType} from "../Models/IgnreServiceType";
+import { ISearchServiceType } from "../Models/ISearchServiceType";
 
 export const moviesApiService = {
     getAllMovies: async (page: string): Promise<IPaginationModel<IMovieModel>> => {
@@ -23,7 +18,7 @@ export const moviesApiService = {
         return data.results
     },
     searchMovie: async ({query: {query}, page}: ISearchServiceType): Promise<IPaginationModel<IMovieModel>> => {
-        const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.search.searchMovie(query), {params: {page:page}})
+        const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.search.searchMovie(query), {params: {page: page}})
         return data
     },
     movieDetails: async (movieId: string): Promise<IMovieDetailInfo> => {
@@ -40,7 +35,7 @@ export const moviesApiService = {
     },
     getMoviesByGenre: async ({page, id}: IgnreServiceType): Promise<IPaginationModel<IMovieModel>> => {
         const {data} = await axiosInstanse.get<IPaginationModel<IMovieModel>>(urls.genreUrls.getByIdGenre({page, id}))
-    return data
+        return data
 
     }
 }

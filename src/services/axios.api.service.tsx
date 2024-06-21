@@ -9,6 +9,5 @@ export const axiosInstanse = axios.create({
 
 axiosInstanse.interceptors.request.use(request => {
     request.headers.set('Authorization', 'Bearer ' + tokkenKey)
-
     return request
 })

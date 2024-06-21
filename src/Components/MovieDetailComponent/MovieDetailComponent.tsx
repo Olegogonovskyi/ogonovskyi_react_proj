@@ -42,7 +42,11 @@ const MovieDetailComponent: FC = () => {
                                 </div>
                             </div>
 
-
+                        </div>
+                        <div>
+                            <h5>Budget: {movie.budget}</h5>
+                            <h5>Release date: {movie.release_date}</h5>
+                            <h5>Original language: {movie.original_language}</h5>
                         </div>
                         <p className={style.movieDescription}>{movie.overview}</p>
                         <div className={style.videoBlock}>
