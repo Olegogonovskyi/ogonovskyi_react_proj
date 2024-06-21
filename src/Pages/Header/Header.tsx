@@ -4,17 +4,22 @@ import {urls} from "../../costants/Urls";
 import {ISearchModel} from '../../Models/ISearchModel';
 import {useForm} from 'react-hook-form';
 import style from './Header.module.css'
-import {useAppDispatch, useAppSelector} from '../../redux/store';
+import {useAppDispatch} from '../../redux/store';
 import {themeActions} from '../../redux/slices/themeSlice';
+import {Avatar, Chip, FormControlLabel, Stack} from '@mui/material';
+import {MaterialUISwitch} from '../../CustomizatedComponents/Switcher';
+
 
 const Header: FC = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    const {curentTheme} = useAppSelector(state => state.themeReducer)
     const {handleSubmit, register, reset} = useForm<ISearchModel>()
     const searchMovie = (keyword: ISearchModel) => {
         navigate(urls.search.searchPage + `/${keyword.query}`)
         reset()
+    }
+    const changerTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
+        dispatch(themeActions.changeTheme())
     }
     return (
         <div>
@@ -29,17 +34,24 @@ const Header: FC = () => {
                     <button className={style.searchButton}>Search</button>
                 </form>
                 <div className={style.themeUserBlock}>
-                    <button
-                        className={`${style.button} ${curentTheme ? style.light : style.dark}`}
-                        onClick={() => {
-                            dispatch(themeActions.changeTheme())
-                        }}>
-                        {curentTheme ? <div className={style.theme}>&#9789;</div> :
-                            <div className={style.theme}>&#9788;</div>}
-                    </button>
+
+                    <FormControlLabel
+                        control={<MaterialUISwitch sx={{m: 1}} defaultChecked onChange={changerTheme}/>}
+                        label=''
+                    />
+
                     <div className={style.logUser}>
-                        <div>&#9760;</div>
-                        <div>username</div>
+                        <Stack direction="row" spacing={1}>
+                            <Chip
+                                color="success"
+                                avatar={<Avatar alt="RoboUser"
+                                                src="https://m.media-amazon.com/images/S/pv-target-images/57b889ffc6339a3e9046030f9226a74c2460682fc859976aa1ebff1c1d171323._SX1080_FMjpg_.jpg"/>}
+                                label="RoboUser"
+                                variant="outlined"
+
+                            />
+                        </Stack>
+
                     </div>
                 </div>
             </div>

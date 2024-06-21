@@ -5,7 +5,7 @@ import style from './MovieDetailComponent.module.css'
 import StarRatings from 'react-star-ratings';
 import ColectionComponent from '../ColectionComponent/ColectionComponent';
 import { globalStyles } from '../../GlobalStyles/GlobalStyles';
-import {Badge} from 'badges';
+
 
 
 const MovieDetailComponent: FC = () => {
@@ -30,11 +30,7 @@ const MovieDetailComponent: FC = () => {
                                                                                           key={genre.id}/>)
                                         }
                                     </div>
-                                    <div>
-                                        <Badge type="success">Success Badge</Badge>
-                                        <Badge type="warning">Warning Badge</Badge>
-                                        <Badge type="error">Error Badge</Badge>
-                                    </div>
+
                                 </div>
                                 <div>
                                     <h4>Vote {movie.vote_average}</h4>
