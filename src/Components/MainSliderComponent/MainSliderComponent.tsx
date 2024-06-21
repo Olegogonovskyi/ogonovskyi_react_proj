@@ -1,12 +1,11 @@
 import React, {FC} from 'react';
 import {responsive} from '../../sliderHelper/sliderHelper';
-import { useAppSelector } from '../../redux/store';
+import {useAppSelector} from '../../redux/store';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import FilmComponent from '../FilmComponent/FilmComponent';
 
 const MainSliderComponent: FC = () => {
-
     const {nowPlaying} = useAppSelector(state => state.moviesReducer)
     return (
         <div>
@@ -17,7 +16,6 @@ const MainSliderComponent: FC = () => {
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
-
                 autoPlaySpeed={2000}
                 keyBoardControl={true}
                 customTransition="all .5"

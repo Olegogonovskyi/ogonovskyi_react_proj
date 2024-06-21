@@ -1,4 +1,3 @@
-
 export interface IPaginationModel<T> {
     page: number,
     results: T[],

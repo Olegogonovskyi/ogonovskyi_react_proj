@@ -6,25 +6,18 @@ import {moviesActions} from '../../redux/slices/moviesSlice';
 import ButtonsComponent from '../../Components/ButtonsComponent/ButtonsComponent';
 
 const GenrePage: FC = () => {
-
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
     const [qwerty, setQwerty] = useSearchParams({page: '1'})
     const {id} = useParams()
     const dispatch = useAppDispatch()
     const [currentPage, setCurrentPage] = useState(qwerty.get('page') || '1');
-
     useEffect(() => {
         setCurrentPage(qwerty.get('page') || '1');
         if (id) {
             dispatch(moviesActions.loadMovieByGenre({page: currentPage, id: id}))
         }
     }, [qwerty, currentPage, id]);
-    // useEffect(() => {
-    //     console.log("id: ", id);
-    //     console.log("Current Page: ", currentPage);
-    //     console.log("Page from Redux: ", page);
-    //     console.log("Total Pages from Redux: ", total_pages);
-    // }, [id, currentPage, page, total_pages]);
+
     return (
         <div>
             <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>

@@ -7,7 +7,6 @@ import {useSearchParams} from 'react-router-dom';
 import ButtonsComponent from '../../Components/ButtonsComponent/ButtonsComponent';
 
 const MainPage: FC = () => {
-
     const [qwerty, setQwerty] = useSearchParams({page: '1'})
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
     const dispatch = useAppDispatch()
@@ -17,7 +16,6 @@ const MainPage: FC = () => {
     }, [dispatch, qwerty]);
     return (
         <div>
-
             <MainSliderComponent/>
             <hr/>
             <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
