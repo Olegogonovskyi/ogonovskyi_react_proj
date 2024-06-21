@@ -4,8 +4,11 @@ import {urls} from '../../costants/Urls';
 import style from './MovieDetailComponent.module.css'
 import StarRatings from 'react-star-ratings';
 import ColectionComponent from '../ColectionComponent/ColectionComponent';
-import { globalStyles } from '../../GlobalStyles/GlobalStyles';
-
+import {globalStyles} from '../../GlobalStyles/GlobalStyles';
+import {IconButton} from '@mui/material';
+import {StyledBadge} from '../../CustomizatedComponents/BudgeComponent';
+import MarkChatReadTwoToneIcon from '@mui/icons-material/MarkChatReadTwoTone';
+import ThumbsUpDownTwoToneIcon from '@mui/icons-material/ThumbsUpDownTwoTone';
 
 
 const MovieDetailComponent: FC = () => {
@@ -16,7 +19,7 @@ const MovieDetailComponent: FC = () => {
         <div style={curentTheme ? globalStyles.light : globalStyles.dark}>
             {
                 movie &&
-                <div className={style.movieContainer} >
+                <div className={style.movieContainer}>
                     <img src={urls.image(movie.poster_path)} className={style.moviePoster} alt={movie.original_title}
                          key={movie.id}/>
                     <div>
@@ -33,7 +36,18 @@ const MovieDetailComponent: FC = () => {
 
                                 </div>
                                 <div>
-                                    <h4>Vote {movie.vote_average}</h4>
+                                    <div className={style.badgeBlock}>
+                                        <IconButton aria-label="cart">
+                                            <StyledBadge badgeContent={movie.vote_count} color="secondary">
+                                                <MarkChatReadTwoToneIcon/>
+                                            </StyledBadge>
+                                        </IconButton>
+                                        <IconButton aria-label="cart">
+                                            <StyledBadge badgeContent={movie.vote_average} color="secondary">
+                                                <ThumbsUpDownTwoToneIcon/>
+                                            </StyledBadge>
+                                        </IconButton>
+                                    </div>
                                     <StarRatings key={movie.id}
                                                  rating={movie.vote_average}
                                                  starRatedColor="#4CAF50"
@@ -50,6 +64,7 @@ const MovieDetailComponent: FC = () => {
                             <h5>Budget: {movie.budget}</h5>
                             <h5>Release date: {movie.release_date}</h5>
                             <h5>Original language: {movie.original_language}</h5>
+                            <h5>Runtime: {movie.runtime}</h5>
                         </div>
                         <p className={style.movieDescription}>{movie.overview}</p>
                         <div className={style.videoBlock}>

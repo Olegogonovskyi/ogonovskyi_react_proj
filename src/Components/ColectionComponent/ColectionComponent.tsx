@@ -9,7 +9,8 @@ const ColectionComponent: FC<{genre: IGenreModel}> = ({genre}) => {
     const {curentTheme} = useAppSelector(state => state.themeReducer)
     const navigate = useNavigate()
     return (
-        <div style={curentTheme ? globalStyles.light : globalStyles.dark}
+        <div
+            style={curentTheme ? globalStyles.light : globalStyles.dark}
             onClick={()=> {navigate(`/genre/${genre.id.toString()}`)}}>
             <div className={style.button}>{genre.name}</div>
         </div>

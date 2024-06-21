@@ -75,3 +75,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.badgeBlock{
+    display: flex;
+    justify-content: center;
+}
