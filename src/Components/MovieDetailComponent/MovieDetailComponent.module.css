@@ -80,3 +80,7 @@
     display: flex;
     justify-content: center;
 }
+
+.badgetsIcons {
+    margin: 10px;
+}

@@ -7,10 +7,11 @@ import AllFilmsPage from "../Pages/AllFilmsPage/AllFilmsPage";
 import MainPage from "../Pages/MainPage/MainPage";
 import MovieDetailPage from "../Pages/MovieDetailPage/MovieDetailPage";
 import GenrePage from "../Pages/GenrePage/GenrePage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
-        path: '/', element: <MainLayout/>, children: [
+        path: '/', element: <MainLayout/>, errorElement: <ErrorPage/>, children: [
             {
                 index: true, element: <MainPage/>
             },

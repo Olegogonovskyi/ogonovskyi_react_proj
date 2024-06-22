@@ -4,7 +4,8 @@ import {moviesActions} from "../../redux/slices/moviesSlice";
 import MainSliderComponent from '../../Components/MainSliderComponent/MainSliderComponent';
 import AllFilmsPage from '../AllFilmsPage/AllFilmsPage';
 import {useSearchParams} from 'react-router-dom';
-import ButtonsComponent from '../../Components/ButtonsComponent/ButtonsComponent';
+import PaginationComponentSoft from '../../Components/PaginationComponentSoft/PaginationComponentSoft';
+
 
 const MainPage: FC = () => {
     const [qwerty, setQwerty] = useSearchParams({page: '1'})
@@ -18,9 +19,9 @@ const MainPage: FC = () => {
         <div>
             <MainSliderComponent/>
             <hr/>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
             <AllFilmsPage/>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
         </div>
     );
 };

@@ -14,7 +14,7 @@ import ThumbsUpDownTwoToneIcon from '@mui/icons-material/ThumbsUpDownTwoTone';
 const MovieDetailComponent: FC = () => {
     const {curentTheme} = useAppSelector(state => state.themeReducer)
     const {movie, video} = useAppSelector(state => state.detailMovieReducer)
-    const {genres} = useAppSelector(state => state.genreReducer)
+
 
     return (
         <div style={curentTheme ? globalStyles.light : globalStyles.dark}>
@@ -38,16 +38,18 @@ const MovieDetailComponent: FC = () => {
                                 </div>
                                 <div>
                                     <div className={style.badgeBlock}>
-                                        <IconButton aria-label="cart">
-                                            <StyledBadge badgeContent={movie.vote_count} color="secondary">
+
+                                        <div className={style.badgetsIcons}><IconButton aria-label="cart">
+                                            <StyledBadge badgeContent={movie.vote_count} max={999999} color="secondary">
                                                 <MarkChatReadTwoToneIcon/>
                                             </StyledBadge>
-                                        </IconButton>
-                                        <IconButton aria-label="cart">
+                                        </IconButton></div>
+                                        <div className={style.badgetsIcons}><IconButton aria-label="cart">
                                             <StyledBadge badgeContent={movie.vote_average} color="secondary">
                                                 <ThumbsUpDownTwoToneIcon/>
                                             </StyledBadge>
-                                        </IconButton>
+                                        </IconButton></div>
+                                        
                                     </div>
                                     <StarRatings key={movie.id}
                                                  rating={movie.vote_average}

@@ -3,7 +3,7 @@ import SearchComponent from "../../Components/SearchComponent/SearchComponent";
 import {useAppDispatch, useAppSelector} from '../../redux/store';
 import {moviesActions} from '../../redux/slices/moviesSlice';
 import {useParams, useSearchParams} from 'react-router-dom';
-import ButtonsComponent from '../../Components/ButtonsComponent/ButtonsComponent';
+import PaginationComponentSoft from '../../Components/PaginationComponentSoft/PaginationComponentSoft';
 
 const SearchPage: FC = () => {
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
@@ -22,9 +22,9 @@ const SearchPage: FC = () => {
 
     return (
         <div>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
             <SearchComponent/>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
         </div>
     );
 };

@@ -3,7 +3,8 @@ import GenreComponent from '../../Components/GenreComponent/GenreComponent';
 import {useParams, useSearchParams} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../redux/store';
 import {moviesActions} from '../../redux/slices/moviesSlice';
-import ButtonsComponent from '../../Components/ButtonsComponent/ButtonsComponent';
+import PaginationComponentSoft from '../../Components/PaginationComponentSoft/PaginationComponentSoft';
+
 
 const GenrePage: FC = () => {
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
@@ -20,9 +21,9 @@ const GenrePage: FC = () => {
 
     return (
         <div>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
             <GenreComponent/>
-            <ButtonsComponent page={page} setQwerty={setQwerty} total_pages={total_pages}/>
+            <div><PaginationComponentSoft page={page} setQwerty={setQwerty} key={page} total_pages={total_pages}/></div>
         </div>
     );
 };

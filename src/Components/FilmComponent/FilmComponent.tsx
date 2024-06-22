@@ -5,7 +5,6 @@ import styles from './FilmComponent.module.css'
 import {useNavigate} from 'react-router-dom';
 import {useAppSelector} from '../../redux/store';
 import {globalStyles} from '../../GlobalStyles/GlobalStyles';
-import StarTwoToneIcon from '@mui/icons-material/StarTwoTone';
 import { StyledBadge } from '../../CustomizatedComponents/BudgeComponent';
 
 const FilmComponent: FC<{ movie: IMovieModel }> = ({movie}) => {
