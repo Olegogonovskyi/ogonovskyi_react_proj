@@ -25,3 +25,9 @@
     font-size: 1.5em;
     text-align: center;
 }
+
+.underlay {
+    position: relative;
+    top: -50px;
+    left: 20px;
+}

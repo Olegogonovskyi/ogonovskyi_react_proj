@@ -14,6 +14,7 @@ import ThumbsUpDownTwoToneIcon from '@mui/icons-material/ThumbsUpDownTwoTone';
 const MovieDetailComponent: FC = () => {
     const {curentTheme} = useAppSelector(state => state.themeReducer)
     const {movie, video} = useAppSelector(state => state.detailMovieReducer)
+    const {genres} = useAppSelector(state => state.genreReducer)
 
     return (
         <div style={curentTheme ? globalStyles.light : globalStyles.dark}>
@@ -30,7 +31,7 @@ const MovieDetailComponent: FC = () => {
                                     <div className={style.genreBlock}>
                                         {
                                             movie.genres.map(genre => <ColectionComponent genre={genre}
-                                                                                          key={genre.id}/>)
+                                                                                          key={genre.id}/> )
                                         }
                                     </div>
 
