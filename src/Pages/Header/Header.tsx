@@ -9,7 +9,6 @@ import {themeActions} from '../../redux/slices/themeSlice';
 import {Avatar, Chip, FormControlLabel, Stack} from '@mui/material';
 import {MaterialUISwitch} from '../../CustomizatedComponents/Switcher';
 
-
 const Header: FC = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()

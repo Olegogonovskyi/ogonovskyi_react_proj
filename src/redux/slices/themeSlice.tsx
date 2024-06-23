@@ -1,4 +1,4 @@
-import { createSlice} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 type ThemeSlice = {
     curentTheme: boolean
@@ -12,8 +12,11 @@ const themeSlice = createSlice({
     name: 'themeSlice',
     initialState,
     reducers: {
-        changeTheme: (state) => {state.curentTheme = !state.curentTheme}}
-    })
+        changeTheme: (state) => {
+            state.curentTheme = !state.curentTheme
+        }
+    }
+})
 
 const {reducer: themeReducer, actions} = themeSlice
 

@@ -6,7 +6,6 @@ import {IMovieModel} from "../../Models/IMovieModel";
 import {IgnreServiceType} from "../../Models/IgnreServiceType";
 import {ISearchServiceType} from "../../Models/ISearchServiceType";
 
-
 type initialStateProps = IPaginationModel<IMovieModel> & { nowPlaying: IMovieModel[] }
 const initialState: initialStateProps = {
     page: 0,

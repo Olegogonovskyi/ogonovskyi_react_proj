@@ -1,4 +1,4 @@
-import { IGenreModel } from "./IGenreModel"
+import {IGenreModel} from "./IGenreModel"
 
 export interface IMovieDetailInfo {
     adult: boolean,

@@ -31,7 +31,7 @@ const MovieDetailComponent: FC = () => {
                                     <div className={style.genreBlock}>
                                         {
                                             movie.genres.map(genre => <ColectionComponent genre={genre}
-                                                                                          key={genre.id}/> )
+                                                                                          key={genre.id}/>)
                                         }
                                     </div>
 
@@ -49,7 +49,7 @@ const MovieDetailComponent: FC = () => {
                                                 <ThumbsUpDownTwoToneIcon/>
                                             </StyledBadge>
                                         </IconButton></div>
-                                        
+
                                     </div>
                                     <StarRatings key={movie.id}
                                                  rating={movie.vote_average}

@@ -1,8 +1,8 @@
 import {PayloadAction, createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IMovieDetailInfo} from "../../Models/IMovieDetailInfo";
-import { moviesApiService } from "../../services/movies.api.service";
-import { AxiosError } from "axios";
-import { IVideoModel } from "../../Models/IVideoModel";
+import {moviesApiService} from "../../services/movies.api.service";
+import {AxiosError} from "axios";
+import {IVideoModel} from "../../Models/IVideoModel";
 
 type initialStateType = {
     movie: IMovieDetailInfo | null,
@@ -47,10 +47,10 @@ const detailMovieSlice = createSlice({
         reducers: {},
         initialState,
         extraReducers: builder => builder
-            .addCase(loadmovieDetails.fulfilled, (state, action: PayloadAction<IMovieDetailInfo>)=> {
+            .addCase(loadmovieDetails.fulfilled, (state, action: PayloadAction<IMovieDetailInfo>) => {
                 state.movie = action.payload
             })
-            .addCase(loadmovieVideo.fulfilled, (state, action: PayloadAction<IVideoModel>)=> {
+            .addCase(loadmovieVideo.fulfilled, (state, action: PayloadAction<IVideoModel>) => {
                 state.video = action.payload
             })
     }

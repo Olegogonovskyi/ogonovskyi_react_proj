@@ -6,7 +6,7 @@ import {IMovieDetailInfo} from "../Models/IMovieDetailInfo";
 import {IVideoModel} from "../Models/IVideoModel";
 import {IGenreModel} from "../Models/IGenreModel";
 import {IgnreServiceType} from "../Models/IgnreServiceType";
-import { ISearchServiceType } from "../Models/ISearchServiceType";
+import {ISearchServiceType} from "../Models/ISearchServiceType";
 
 export const moviesApiService = {
     getAllMovies: async (page: string): Promise<IPaginationModel<IMovieModel>> => {

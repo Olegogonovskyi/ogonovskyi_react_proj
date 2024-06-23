@@ -6,7 +6,6 @@ import AllFilmsPage from '../AllFilmsPage/AllFilmsPage';
 import {useSearchParams} from 'react-router-dom';
 import PaginationComponentSoft from '../../Components/PaginationComponentSoft/PaginationComponentSoft';
 
-
 const MainPage: FC = () => {
     const [qwerty, setQwerty] = useSearchParams({page: '1'})
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)

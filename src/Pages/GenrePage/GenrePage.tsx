@@ -5,7 +5,6 @@ import {useAppDispatch, useAppSelector} from '../../redux/store';
 import {moviesActions} from '../../redux/slices/moviesSlice';
 import PaginationComponentSoft from '../../Components/PaginationComponentSoft/PaginationComponentSoft';
 
-
 const GenrePage: FC = () => {
     const {page, total_pages} = useAppSelector(state => state.moviesReducer)
     const [qwerty, setQwerty] = useSearchParams({page: '1'})

@@ -17,15 +17,15 @@ const PaginationComponentSoft: FC<{ total_pages: number, page: number, setQwerty
     return (
         <div className={style.main}>
 
-                <Pagination count={total_pages} page={page} onChange={handleChange} variant="outlined" color="primary"
-                            size="large"
-                            renderItem={(item) => (
-                                <PaginationItem
-                                    slots={{previous: ArrowBackIcon, next: ArrowForwardIcon}}
-                                    {...item}
-                                />
-                            )}/>
-            
+            <Pagination count={total_pages} page={page} onChange={handleChange} variant="outlined" color="primary"
+                        size="large"
+                        renderItem={(item) => (
+                            <PaginationItem
+                                slots={{previous: ArrowBackIcon, next: ArrowForwardIcon}}
+                                {...item}
+                            />
+                        )}/>
+
         </div>
     );
 };

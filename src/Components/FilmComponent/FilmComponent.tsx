@@ -5,7 +5,7 @@ import styles from './FilmComponent.module.css'
 import {useNavigate} from 'react-router-dom';
 import {useAppSelector} from '../../redux/store';
 import {globalStyles} from '../../GlobalStyles/GlobalStyles';
-import { StyledBadge } from '../../CustomizatedComponents/BudgeComponent';
+import {StyledBadge} from '../../CustomizatedComponents/BudgeComponent';
 
 const FilmComponent: FC<{ movie: IMovieModel }> = ({movie}) => {
 
@@ -20,7 +20,7 @@ const FilmComponent: FC<{ movie: IMovieModel }> = ({movie}) => {
                 navigate(`/movie/${id.toString()}`)
             }}>
                 <img className={styles.poster} src={urls.image(poster_path)} alt={title}/>
-                    <h5 className={styles.title}>{title}</h5>
+                <h5 className={styles.title}>{title}</h5>
             </div>
             <div className={styles.underlay}><StyledBadge badgeContent={movie.vote_average} color="success">
 
